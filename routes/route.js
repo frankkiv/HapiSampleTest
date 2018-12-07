@@ -1,4 +1,5 @@
 const handler =require('../api/routeHandler.js');
+const userhandler =require('../api/userHandler.js');
 
 module.exports = [
     { method: 'GET', path: '/api/user/{id}', handler: handler.getPathParams }, //curl -X GET "localhost:3000/api/User/John"
@@ -8,4 +9,7 @@ module.exports = [
     { method:['POST','PUT'], path: '/api/comment', handler: handler.postBodyParams }, 
     //curl -X POST --data-binary '{"id":"John","text":"I love Trend"}' -H 'Content-Type: application/json' "localhost:3000/api/comment"
     //curl -X PUT --data-binary '{"id":"John","text":"I love Trend"}' -H 'Content-Type: application/json' "localhost:3000/api/comment"
+    
+    { method: 'GET', path: '/api/userlist', handler: userhandler.getUserList },
+    { method: 'GET', path: '/api/userdetail/{id}', handler: userhandler.getUserDetail },
 ];
